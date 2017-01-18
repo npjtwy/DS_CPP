@@ -108,3 +108,37 @@ void SetValue_Iter(BinNodePosi(T) root)
 	}
 
 }
+
+#include "../Queue/Queue.h"
+//判断二叉树是否是完全二叉树
+//根据完全二叉树的定义  采用层次遍历，将所有节点入队列，包括空节点 
+//当遍历到空节点时 若其后面还有非空节点 则不是完全二叉树 
+template <typename T>
+bool IsComplete(BinNodePosi(T) root)
+{
+	Queue<BinNodePosi(T)> q;
+
+	if (!root) return 1;	//空树为满二叉树
+
+	q.enqueue(root);
+	while (!q.empty())
+	{
+		auto x = q.dequeue();
+		if (!x)	//若x为空节点
+		{
+			while (!q.empty())
+			{
+				auto tmp = q.dequeue();
+				if (tmp)	//若存在非空节点
+					return false;	//则不是完全二叉树
+			}
+		}
+		else
+		{
+			//左右孩子节点入队列 包括空节点
+			q.enqueue(x->lChild);
+			q.enqueue(x->rChild);
+		}
+	}//while
+	return true;
+}
