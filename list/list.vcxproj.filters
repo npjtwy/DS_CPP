@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="List.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ListNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_bracket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_constructor_by_copying.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_copyNodes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_find.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_implementation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_initialize.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_insert.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_remove.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_clear.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_destructor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_deduplicate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_traverse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_uniquify.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_search.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_insertionSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_selectMax.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_selectionSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_merge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_mergeSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VST_and_visit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List_reverse1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
