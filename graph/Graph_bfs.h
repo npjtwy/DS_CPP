@@ -1,5 +1,5 @@
 #pragma once
-#include "../Queue/Queue.h"
+#include "../queue/Queue.h"
 
 //广度优先搜索算法 
 template <typename Tv, typename Te>

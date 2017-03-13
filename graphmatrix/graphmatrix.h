@@ -155,8 +155,14 @@ public:
 	{
 		return V[v].fTime;
 	}
-	virtual int& parent(int) = 0; //顶点v在遍历树中的父亲
-	virtual int& priority(int) = 0; //顶点v在遍历树中的优先级数
+	virtual int& parent(int v)//顶点v在遍历树中的父亲
+	{
+		return V[v].parent;
+	}
+	virtual int& priority(int v) //顶点v在遍历树中的优先级数
+	{
+		return V[v].priority;
+	}
 									// 边：这里约定，无向边均统一转化为方向互逆的一对有向边，从而将无向图视作有向图的特例
 };
 

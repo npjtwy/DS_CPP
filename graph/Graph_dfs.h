@@ -1,30 +1,32 @@
 /************************************************************************
-* Éî¶ÈÓÅÏÈËÑË÷                                                                   
+* æ·±åº¦ä¼˜å…ˆæœç´¢                                                                   
 ************************************************************************/
 #pragma once
 
 template <typename Tv, typename Te>
 void Graph<Tv, Te>::dfs(int s)
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	reset();
 	int clock = 0;
 	int v = s;
-	//¼ì²éËùÓĞ¶¥µã Óöµ½Ã»ÓĞ·ÃÎÊµÄ Ö´ĞĞ DFS
+	//æ£€æŸ¥æ‰€æœ‰é¡¶ç‚¹ é‡åˆ°æ²¡æœ‰è®¿é—®çš„ æ‰§è¡Œ DFS
 	do 
 	{
 		if (status(v) == UNDISCOVERED)
 			DFS(v, clock);
 
-	} while (s £¡= (v = (++v % n)));
+	} while (s ï¼= (v = (++v % n)));
 }
 
 template <typename Tv, typename Te>
-void Graph<Tv, Te>::DFS(int v, int& clock)	//DFSËã·¨  µ¥Á¬Í¨Óò
+void Graph<Tv, Te>::DFS(int v, int & clock)
 {
-	dTime(v) = ++clock;
 	status(v) = DISCOVERED;
-	for (int u = firstNbr(v); -1 < u; u = nextNbr(v, u))
+	dTime(v) = ++clock;		//å°†vçš„å‘ç°æ—¶åˆ»æ›´æ–°
+
+	//DFS 
+	for (int u = firstNbr(v); -1 < u; u = nextNbr(v, u))	//éå†vçš„æ‰€æœ‰é‚»æ¥é¡¶ç‚¹
 	{
 		switch (status(u))
 		{
@@ -33,13 +35,15 @@ void Graph<Tv, Te>::DFS(int v, int& clock)	//DFSËã·¨  µ¥Á¬Í¨Óò
 			parent(u) = v;
 			DFS(u, clock); break;
 		case DISCOVERED:
-			status(u, v) = BACKWARD;
+			status(v, u) = BACKWARD;
 			break;
 		default:
 			status(v, u) = (dTime(v) < dTime(u)) ? FORWARD : CROSS;
 			break;
 		}
 	}
+
 	status(v) = VISITED;
 	fTime(v) = ++clock;
 }
+
