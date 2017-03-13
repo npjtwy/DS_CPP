@@ -39,10 +39,10 @@ public:
 	virtual bool exists(int, int) = 0; //边(v, u)是否存在
 	virtual void insert(Te const&, int, int, int) = 0; //在顶点v和u之间插入权重为w的边e
 	virtual Te remove(int, int) = 0; //删除顶点v和u之间的边e，返回该边信息
-	virtual EType & type(int, int) = 0; //边(v, u)的类型
 	virtual Te& edge(int, int) = 0; //边(v, u)的数据（该边的确存在）
 	virtual int& weight(int, int) = 0; //边(v, u)的权重
-									   // 算法
+	virtual EStatus status(int i, int j) = 0	//边的状态
+	 // 算法
 	void bfs(int); //广度优先搜索算法
 	void dfs(int); //深度优先搜索算法
 	void bcc(int); //基于DFS的双连通分量分解算法

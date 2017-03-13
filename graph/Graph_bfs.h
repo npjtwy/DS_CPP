@@ -1,4 +1,5 @@
 #pragma once
+#include "../Queue/Queue.h"
 
 //广度优先搜索算法 
 template <typename Tv, typename Te>
@@ -20,29 +21,28 @@ void Graph<Tv, Te>::bfs(int s)
 template <typename Tv, typename Te>
 void Graph<Tv, Te>::BFS(int v, int& clock)
 {
-	Queue<int> Q;		//辅助队列
+	Queue<int> Q;	//辅助队列
 	status(v) = DISCOVERED;
-	Q.enqueue(v);		//初始化起点
-	
-	while(!Q.empty())
+	Q.enqueue(v);
+
+	while (Q.empty())
 	{
-		int v = Q.dequeue();		//取出队首顶点
+		int v= Q.dequeue();
 		dTime(v) = ++clock;
 
-		for (int u = firstNbr; -1 < u; u = nextNbr(v, u))
+		for (int u = firstNbr(v); -1 < u; u = nextNbr(v, u))
 		{
-			if (UNDISCOVERED == status(u))	//若尚未发现
+			if (status(u) == UNDISCOVERED)
 			{
-				status(u) = DISCOVERED;		//发现该顶点， 将此条边加入树中
+				status(u) = DISCOVERED;		//如果u尚未被发现 则置 u 状态为发现，然后入队
 				Q.enqueue(u);
-				status(v, u) = TREE; parent(u) = v;
+				status(v, u) = TREE;	//更新 v -> u两个顶点间的状态为 TREE
 			}
-			else  //若已经发现，或者是访问完毕
+			else
 			{
-				status(v, u) = CROSS;	//将（v, u）归于跨边
+				status(v, u) = CROSS;	//	若是u已被发现，或者已访问，则v->u归为跨边
 			}
 		}
-
-		status(v) = VISITED;	//当前顶点的所有邻边访问完毕
+		status(v) = VISITED;	//顶点v访问完毕
 	}
 }
