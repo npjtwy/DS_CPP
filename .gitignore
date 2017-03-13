@@ -44,6 +44,8 @@ dlldata.c
 project.lock.json
 artifacts/
 
+Debug/
+
 *_i.c
 *_p.c
 *_i.h
@@ -68,6 +70,8 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
+*.vcxproj
+*.vcxproj.filters
 
 # Chutzpah Test files
 _Chutzpah*
@@ -240,3 +244,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+

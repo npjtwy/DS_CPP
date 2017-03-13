@@ -142,3 +142,20 @@ bool IsComplete(BinNodePosi(T) root)
 	}//while
 	return true;
 }
+
+//求非空二叉树的宽度 即具有最多节点那层的节点数
+template <typename T>
+unsigned BinTreeWidth(BinNodePosi(T) root)
+{
+	unsigned cnt = 0;
+	if (!root) return cnt;
+
+	Queue<BinNodePosi(T)> q;
+	
+	q.dequeue(root);
+	while (!q.empty())
+	{
+
+	}
+
+}
