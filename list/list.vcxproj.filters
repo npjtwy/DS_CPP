@@ -81,10 +81,10 @@
     <ClInclude Include="List_mergeSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="VST_and_visit.h">
+    <ClInclude Include="List_reverse1.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="List_reverse1.h">
+    <ClInclude Include="VST.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

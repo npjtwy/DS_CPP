@@ -1,61 +1,58 @@
+#pragma once
 /************************************************************************
 * 基于DFS的拓扑排序                                                                   
-************************************************************************/
-
-#pragma once
+***********************************************************************/
 
 template <typename Tv, typename Te>
-Stack<TV>* Graph<Tv, Te>::tSort(int s)
+Stack<Tv>* Graph<Tv, Te>::tSort(int i)	//拓扑排序入口
 {
-	//初始化
 	reset();
-	int v = s;
 	int clock = 0;
-	Stack<Tv>* S = new Stack<Tv>;
+	int v = i;
 
-	//用栈来保存拓扑排序顶点
+	Stack<Tv> *S = new Stack<Tv>;		//辅助栈
+
 	do 
 	{
-		if (UNDISCOVERED == status(v))
+		if (status(v) == UNDISCOVERED)
 		{
 			if (!TSort(v, clock, S))
 			{
 				while (!S->empty())
+				{
 					S->pop();
-				break;
+				}
+				break;		//若拓扑排序失败 清空栈
 			}
 		}
-	} while (s != (v = (++v % n);
-	return S;	//若存在拓扑排序 则顺序为从栈底向上 否则栈为空
+	} while (i != (v = (++v % n)));
+
+	return S;
 }
 
-//基于DFS的拓扑排序算法
-
-template <typename Tv, typename Te>
-bool Graph<Tv, Te>::TSort(int v, int clock, Stack<Tv>* S)
-{
-	dTime(v) = ++clock;
+template<typename Tv, typename Te>
+bool Graph<Tv, Te>::TSort(int v, int& clock, Stack<Tv> *s){
 	status(v) = DISCOVERED;
-	for (int u = firstNbr(v); -1 < u; u = nextNbr(v, u))
+	for (int u = firstNbr(c); -1 < u; u = nextNbr(v))
 	{
 		switch (status(u))
 		{
 		case UNDISCOVERED:
-			parent(u) = v;
-			status(v, u) = TREE;
-			if (!TSort(u, clock, S))
-				return false;		//若u及其后代不能拓扑排序 则全图亦然
+			parent(u) = v; status(v, u) = TREE;
+			if (!TSort(u, clock, s)) return 0;
 			break;
 		case DISCOVERED:
-			status(v, u) = BACKWARD;	//发现后向边 则无拓扑排序
-			return false;
+			status(u, v) = BACKWARD;
+			return 0;
+			break;
 		default:
-			status(v, u) = (dTime(v) < dTime(u)) ? FORWARD : CROSS;
+			status(u, v) = (dTime(v) < dTime(u)) ? FORWARD : CROSS;	
+			//若u已经访问完成 根据时间标签标记v,u关系，然后v也访问完成
 			break;
 		}
 	}
 
 	status(v) = VISITED;
-	S->push(vertex(v));
-	return true;
+	s->push(vertex(v));
+	return 1;
 }

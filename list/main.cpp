@@ -6,7 +6,7 @@
 #include <vector>
 #include <algorithm>
 
-#include "VST_and_visit.h"
+#include "VST.h"
 using  namespace std;
 
 int main()
@@ -24,10 +24,10 @@ int main()
 	int i = 123;
 	printf("%d\n", iList.last()->pred->data);
 
-	iList.traverse(visit);	//使用函数指针访问列表元素
+	//iList.traverse(visit);	//使用函数指针访问列表元素
 	printf("\n");
 
-	VST ivisit;
+	VST<int> ivisit;
 	iList.traverse(ivisit);	//使用函数对象访问列表元素
 
 	iList.sort();

@@ -1,6 +1,6 @@
 #pragma once
-#include "../vector/vector.h"
-#include "../graph/graph.h"
+#include "../vector/Vector.h"
+#include "../graph/Graph.h"
 /************************************************************************
 * 邻接矩阵实现图的抽象数据结构                                                                   
 ************************************************************************/
@@ -35,7 +35,7 @@ struct Edge
 };
 
 //基于向量 以邻接矩阵实现的图
-template <typename Te, typename Tv>
+template <typename Tv, typename Te>
 class GraphMatrix : public Graph<Tv, Te>
 {
 private:
@@ -68,15 +68,14 @@ public:
 	{
 		return E[i][j]->weight;
 	}
-
-	virtual EStatus& status(int i, int j)	//边的状态
+	virtual EStatus status(int i, int j) 	//边的状态
 	{
 		return E[i][j]->status;
 	}
 	virtual void insert(Te const& edge, int w, int i, int j) //在顶点v和u之间插入权重为w的边e
 	{
 		if (exists(i, j)) return;
-		E[i][j] = new Edge(edge, w);
+		E[i][j] = new Edge<Te>(edge, w);
 		e++;
 		V[i].outDegree++;	//更新节点出入度
 		V[j].inDegree++;
@@ -84,8 +83,8 @@ public:
 	}
 	virtual Te remove(int i, int j) //删除顶点i和j之间的边e，返回该边信息
 	{
-		if (!exists(i, j)) return;
-		Te edgeBak =edge(i,	j);
+		if (!exists(i, j)) return 0;
+		Te edgeBak = this->edge(i,	j);
 		delete E[i][j];
 		E[i][j] = NULL;
 		e--;
@@ -98,7 +97,7 @@ public:
 	{
 		for (int i = 0; i < n; n++)
 		{
-			E[i]->insert(NULL);	//增加邻接矩阵行向量
+			E[i].insert(NULL);	//增加邻接矩阵行向量
 			n++;	//更新顶点总数
 		}
 		E.insert(Vector<Edge<Te> *>(n, n, (Edge<Te> *)NULL));	//插入列
@@ -124,7 +123,7 @@ public:
 		{
 			if (exists(j, i))
 			{
-				delete E[j]->remove(i);
+				delete E[j].remove(i);
 				V[j].outDegree--;
 			}
 		}
@@ -144,7 +143,7 @@ public:
 	}
 	virtual VStatus& status(int v) //顶点v的状态
 	{
-		return V[V].status;
+		return V[v].status;
 	}
 
 	virtual int& dTime(int v)  //顶点v的时间标签dTime

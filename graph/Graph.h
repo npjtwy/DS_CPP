@@ -1,4 +1,5 @@
 #pragma once
+#include "../stack/Stack.h"
 
 typedef enum { UNDISCOVERED, DISCOVERED, VISITED } VStatus; //顶点状态
 typedef enum { UNDETERMINED, TREE, CROSS, FORWARD, BACKWARD } EStatus; //边在遍历树中所属的类型
@@ -11,12 +12,12 @@ private:
 			status(i) = UNDISCOVERED; dTime(i) = fTime(i) = -1; //状态，时间标签
 			parent(i) = -1; priority(i) = INT_MAX; //（在遍历树中的）父节点，优先级数
 			for (int j = 0; j < n; j++) //所有边的
-				if (exists(i, j)) type(i, j) = UNDETERMINED; //类型
+				if (exists(i, j)) status(i, j) = UNDETERMINED; //类型
 		}
 	}
 	void BFS(int, int&); //（连通域）广度优先搜索算法
 	void DFS(int, int&); //（连通域）深度优先搜索算法
-	void BCC(int, int&, Stack<int>&); //（连通域）基于DFS的双连通分量分解算法
+	//void BCC(int, int&, Stack<int>&); //（连通域）基于DFS的双连通分量分解算法
 	bool TSort(int, int&, Stack<Tv>*); //（连通域）基于DFS的拓扑排序算法
 	template <typename PU> void PFS(int, PU); //（连通域）优先级搜索框架
 public:
@@ -41,11 +42,11 @@ public:
 	virtual Te remove(int, int) = 0; //删除顶点v和u之间的边e，返回该边信息
 	virtual Te& edge(int, int) = 0; //边(v, u)的数据（该边的确存在）
 	virtual int& weight(int, int) = 0; //边(v, u)的权重
-	virtual EStatus status(int i, int j) = 0	//边的状态
+	virtual EStatus status(int i, int j) = 0;	//边的状态
 	 // 算法
 	void bfs(int); //广度优先搜索算法
 	void dfs(int); //深度优先搜索算法
-	void bcc(int); //基于DFS的双连通分量分解算法
+	//void bcc(int); //基于DFS的双连通分量分解算法
 	Stack<Tv>* tSort(int); //基于DFS的拓扑排序算法
 	void prim(int); //最小支撑树Prim算法
 	void dijkstra(int); //最短路径Dijkstra算法

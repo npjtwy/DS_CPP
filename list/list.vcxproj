@@ -169,7 +169,7 @@
     <ClInclude Include="List_sort.h" />
     <ClInclude Include="List_traverse.h" />
     <ClInclude Include="List_uniquify.h" />
-    <ClInclude Include="VST_and_visit.h" />
+    <ClInclude Include="VST.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
