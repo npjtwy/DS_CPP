@@ -15,35 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BST.h">
+    <ClInclude Include="AVL.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="BST_implementation.h">
+    <ClInclude Include="AVL_insert.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="BST_search.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BST_searchIn_recursive.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BST_insert.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BST_remove.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BST_removeAt.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BST_connect34.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BST_rotateAt.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BST_searchIn_iterative.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="test_main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

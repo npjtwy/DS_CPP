@@ -1,19 +1,12 @@
-/******************************************************************************************
-* Data Structures in C++
-* ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3
-* Junhui DENG, deng@tsinghua.edu.cn
-* Computer Science & Technology, Tsinghua University
-* Copyright (c) 2006-2013. All rights reserved.
-******************************************************************************************/
-
 #pragma once
 
-#define BinNodePosi(T) BinNode<T>* //节点位置
+#define BinNodePosi(T) BinNode<T>*  //节点位置
 #define stature(p) ((p) ? (p)->height : -1) //节点高度（与“空树高度为-1”的约定相统一）
 typedef enum { RB_RED, RB_BLACK } RBColor; //节点颜色
 
 template <typename T> struct BinNode { //二叉树节点模板类
 									   // 成员（为简化描述起见统一开放，读者可根据需要进一步封装）
+
 	T data; //数值
 	BinNodePosi(T) parent; 
 	BinNodePosi(T) lChild; 
@@ -24,7 +17,7 @@ template <typename T> struct BinNode { //二叉树节点模板类
 				   // 构造函数
 	BinNode() :
 		parent(NULL), lChild(NULL), rc(NULL), height(0), npl(1), color(RB_RED) { }
-	BinNode(T e, BinNodePosi(T) p = 0, BinNodePosi(T) lc = 0, BinNodePosi(T) rc = 0,
+	BinNode(T e, BinNodePosi(T) p = NULL, BinNodePosi(T) lc = NULL, BinNodePosi(T) rc = NULL,
 		int h = 0, int l = 1, RBColor c = RB_RED) :
 		data(e), parent(p), lChild(lc), rChild(rc), height(h), npl(l), color(c) { }
 	// 操作接口
@@ -49,6 +42,7 @@ template <typename T> struct BinNode { //二叉树节点模板类
 	/*DSA*/BinNodePosi(T) zig(); //顺时针旋转
 	/*DSA*/BinNodePosi(T) zag(); //逆时针旋转
 };
+
 
 /******************************************************************************************
  * BinNode状态与性质的判断

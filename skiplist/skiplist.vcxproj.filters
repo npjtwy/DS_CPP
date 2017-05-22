@@ -60,8 +60,5 @@
     <ClInclude Include="skiplist_skipsearch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="skiplist_test.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

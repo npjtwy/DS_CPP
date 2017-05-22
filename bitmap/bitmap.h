@@ -9,9 +9,9 @@
 #pragma once
 
 #pragma warning(disable : 4996 4800)
-#include <stdlib.h>
-#include <stdio.h>
-#include <memory.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cmemory>
 #include "../_share/release.h"
 
 class Bitmap { //ŒªÕºBitmap¿‡
