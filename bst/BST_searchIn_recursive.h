@@ -4,7 +4,7 @@
 ************************************************************************/
 
 template <typename T>
-static BinNodePosi(T)  
+static BinNodePosi(T)  &
 searchIn_re(BinNodePosi(T)& root, const T& e, BinNodePosi(T) &hot)
 {
 	auto s = root;

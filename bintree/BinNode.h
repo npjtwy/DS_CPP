@@ -1,7 +1,11 @@
 #pragma once
 
+#include <cstddef>
+
 #define BinNodePosi(T) BinNode<T>*  //节点位置
 #define stature(p) ((p) ? (p)->height : -1) //节点高度（与“空树高度为-1”的约定相统一）
+
+
 typedef enum { RB_RED, RB_BLACK } RBColor; //节点颜色
 
 template <typename T> struct BinNode { //二叉树节点模板类

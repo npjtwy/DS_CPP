@@ -9,8 +9,8 @@ BinNodePosi(T) BST<T>::insert(const T& e) //插入
 		return newNode;
 	}
 
-	BinNodePosi(T)  newNode = search(e);
-	if ( newNode ) 	return newNode;//若找到值为 e 的点返回
+	BinNodePosi(T)  & newNode = search(e);
+	if ( newNode != NULL) 	return newNode;//若找到值为 e 的点返回
 
 	newNode = new BinNode<T>(e, _hot);	//建立新节点，其父节点为 _hot
 	_size++;	//更新二叉树状态
