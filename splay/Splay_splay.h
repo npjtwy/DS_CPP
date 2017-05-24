@@ -45,23 +45,23 @@ BinNode<T>* Splay<T>::splay(BinNode<T>* v)
 		}
 		else if (IsRChild(*p))
 		{ //zag-zag
-			attachAsRChild(g, p->lChild);
-			attachAsRChild(p, v->lChild);
-			attachAsLChild(p, g);
-			attachAsLChild(v, p);
+			attachAsRchild(g, p->lChild);
+			attachAsRchild(p, v->lChild);
+			attachAsLchild(p, g);
+			attachAsLchild(v, p);
 		}
 		else
 		{ //zag-zig
-			attachAsRChild(p, v->lChild);
-			attachAsLChild(g, v->rChild);
-			attachAsRChild(v, g);
-			attachAsLChild(v, p);
+			attachAsRchild(p, v->lChild);
+			attachAsLchild(g, v->rChild);
+			attachAsRchild(v, g);
+			attachAsLchild(v, p);
 		}
 		if (!gg) //如果v的原曾祖父不存在 则 v现在应该为树根
 			v->parent = NULL;
 		else
 		{ //否则，*gg此后应诠以*v作为左戒右孩子
-			(g == gg->lChild) ? attachAsLChild(gg, v) : attachAsRChild(gg, v);
+			(g == gg->lChild) ? attachAsLchild(gg, v) : attachAsRchild(gg, v);
 			updateHeight(g);
 			updateHeight(p);
 			updateHeight(v);
@@ -71,13 +71,13 @@ BinNode<T>* Splay<T>::splay(BinNode<T>* v)
 	{ //若p果真非空，则额外再做一次单旋
 		if (IsLChild(*v))
 		{
-			attachAsLChild(p, v->rChild);
-			attachAsRChild(v, p);
+			attachAsLchild(p, v->rChild);
+			attachAsRchild(v, p);
 		}
 		else
 		{
-			attachAsRChild(p, v->lChild);
-			attachAsLChild(v, p);
+			attachAsRchild(p, v->lChild);
+			attachAsLchild(v, p);
 		}
 		updateHeight(p);
 		updateHeight(v);
